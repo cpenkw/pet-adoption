@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt a Pet - Pet Adoption</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <h1 class="nav-logo"> Pet Adoption</h1>
+        <div class="nav-menu">
+            <span id="clientUsername" class="nav-user"></span>
+            <button onclick="logout()" class="btn btn-secondary">Logout</button>
+        </div>
+    </div>
+</nav>
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>Find Your Perfect Companion</h1>
+        <p>Give a loving home to a pet in need. Browse our available pets and find your new best friend today!</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="filters">
+        <h3>Filter Pets:</h3>
+        <select id="typeFilter" onchange="applyFilters()">
+            <option value="all">All Types</option>
+            <option value="Dog">Dogs</option>
+            <option value="Cat">Cats</option>
+            <option value="Bird">Birds</option>
+            <option value="Rabbit">Rabbits</option>
+            <option value="Hamster">Hamsters</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <input type="text" id="breedFilter" placeholder="Search by breed..." onkeyup="applyFilters()">
+
+        <button onclick="resetFilters()" class="btn btn-secondary">Reset Filters</button>
+    </div>
+
+    <div id="petsGrid" class="pets-grid"></div>
+
+    <div id="noPets" class="no-pets" style="display: none;">
+        <p>No pets found matching your criteria. Please try different filters.</p>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>We help abandoned animals find a new home! They deserve love too.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Adoption Process</a></li>
+                <li><a href="#">Pet Care Tips</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Information</h3>
+            <p>📧 Email: info@petadoption.com</p>
+            <p>📞 Phone: +7 776 908 05 08</p>
+            <p>📍 Address: Shymkent city,call for instuctions</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Pet Adoption Management System. This website was developed in memory of Masha and Dick, my beloved pets, who are no longer with us, and to raise awareness about the overcrowding of animal shelters.</p>
+    </div>
+</footer>
+
+<script src="/js/client.js"></script>
+</body>
+</html>

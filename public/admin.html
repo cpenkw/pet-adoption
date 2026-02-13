@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="nav-container">
+        <h1 class="nav-logo"> Admin Dashboard</h1>
+        <div class="nav-menu">
+            <span id="adminUsername" class="nav-user"></span>
+            <button onclick="logout()" class="btn btn-secondary">Logout</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="admin-header">
+        <h2>Manage Pets</h2>
+        <button onclick="openAddModal()" class="btn btn-primary">+ Add New Pet</button>
+    </div>
+
+    <div class="filters">
+        <select id="typeFilter">
+            <option value="all">All Types</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Bird">Bird</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="Hamster">Hamster</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <input type="text" id="breedFilter" placeholder="Filter by breed...">
+
+        <select id="statusFilter">
+            <option value="">All Status</option>
+            <option value="Available">Available</option>
+            <option value="Pending">Pending</option>
+            <option value="Adopted">Adopted</option>
+        </select>
+    </div>
+
+    <div id="petsGrid" class="pets-grid"></div>
+</div>
+
+<div id="petModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">Add New Pet</h2>
+        <form id="petForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="petName">Pet Name *</label>
+                    <input type="text" id="petName" required>
+                </div>
+                <div class="form-group">
+                    <label for="petType">Type *</label>
+                    <select id="petType" required>
+                        <option value="">Select</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
+                        <option value="Bird">Bird</option>
+                        <option value="Rabbit">Rabbit</option>
+                        <option value="Hamster">Hamster</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="petBreed">Breed *</label>
+                    <input type="text" id="petBreed" required>
+                </div>
+                <div class="form-group">
+                    <label for="petAge">Age *</label>
+                    <input type="number" id="petAge" min="0" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="petGender">Gender *</label>
+                    <select id="petGender" required>
+                        <option value="">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="petSize">Size *</label>
+                    <select id="petSize" required>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="petColor">Color</label>
+                    <input type="text" id="petColor" value="Mixed">
+                </div>
+                <div class="form-group">
+                    <label for="petStatus">Status *</label>
+                    <select id="petStatus" required>
+                        <option value="Available">Available</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Adopted">Adopted</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="petDescription">Description *</label>
+                <textarea id="petDescription" rows="4" required maxlength="500"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="petImageFile">Upload Image</label>
+                <input type="file" id="petImageFile" accept="image/*">
+                <small>Max 5MB (JPG, PNG, GIF, WEBP)</small>
+                <div id="imagePreview" style="margin-top: 1rem; display: none;">
+                    <img id="previewImg" src="" alt="Preview" style="max-width: 200px; border-radius: 8px;">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="petContactEmail">Contact Email *</label>
+                    <input type="email" id="petContactEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="petContactPhone">Contact Phone</label>
+                    <input type="tel" id="petContactPhone">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="petVaccinated">
+                    Vaccinated
+                </label>
+            </div>
+
+            <div class="modal-buttons">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2026 Pet Adoption System.This website was developed in memory of Masha and Dick, my beloved pets, who are no longer with us, and to raise awareness about the overcrowding of animal shelters.</p>
+</footer>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>
